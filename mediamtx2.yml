@@ -1,0 +1,7 @@
+paths:
+  webrtc_stream:
+    source: publisher
+
+webrtc: true
+
+webrtcLocalUDPAddress: :8190
