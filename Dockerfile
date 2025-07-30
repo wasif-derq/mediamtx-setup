@@ -66,9 +66,21 @@
 
 
 
+# OLD Dockerfile
+# FROM ubuntu:20.04
 
-FROM ubuntu:20.04
+# RUN apt update && apt install -y ffmpeg curl bash && rm -rf /var/lib/apt/lists/*
 
-RUN apt update && apt install -y ffmpeg curl bash && rm -rf /var/lib/apt/lists/*
+# CMD ["bash"]
+
+
+
+# NEW Dockerfile
+FROM debian:bullseye-slim
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    ffmpeg curl bash ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
 
 CMD ["bash"]
