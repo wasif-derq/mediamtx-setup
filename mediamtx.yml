@@ -1,0 +1,5 @@
+paths:
+  webrtc_stream:
+    source: publisher
+
+webrtc: true
