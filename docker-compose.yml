@@ -13,14 +13,14 @@ services:
       - ./mediamtx.yml:/mediamtx.yml
     restart: unless-stopped
 
-  mediamtx2:
-    image: bluenviron/mediamtx:latest
-    ports:
-      - "8891:8889"     # WebRTC HTTP instance 2
-      - "8190:8190/udp" # WebRTC ICE (different port to avoid conflict)
-    volumes:
-      - ./mediamtx2.yml:/mediamtx.yml
-    restart: unless-stopped
+  # mediamtx2:
+  #   image: bluenviron/mediamtx:latest
+  #   ports:
+  #     - "8891:8889"     # WebRTC HTTP instance 2
+  #     - "8190:8190/udp" # WebRTC ICE (different port to avoid conflict)
+  #   volumes:
+  #     - ./mediamtx2.yml:/mediamtx.yml
+  #   restart: unless-stopped
 
 
   streamer:
