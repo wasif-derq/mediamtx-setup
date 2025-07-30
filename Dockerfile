@@ -1,23 +1,27 @@
-FROM ubuntu:22.04
+# FROM ubuntu:22.04
 
-# Install dependencies
-RUN apt-get update && apt-get install -y \
-    ffmpeg \
-    wget \
-    tar \
- && rm -rf /var/lib/apt/lists/*
+# # Install dependencies
+# RUN apt-get update && apt-get install -y \
+#     ffmpeg \
+#     wget \
+#     tar \
+#  && rm -rf /var/lib/apt/lists/*
 
-# Download and extract MediaMTX
-RUN wget https://github.com/bluenviron/mediamtx/releases/download/v1.13.0/mediamtx_linux_amd64.tar.gz \
-    && tar -xvzf mediamtx_linux_amd64.tar.gz -C /mediamtx \
-    && rm mediamtx_linux_amd64.tar.gz
+# # Download and extract MediaMTX
+# RUN wget https://github.com/bluenviron/mediamtx/releases/download/v1.13.0/mediamtx_linux_amd64.tar.gz \
+#     && tar -xvzf mediamtx_linux_amd64.tar.gz -C /mediamtx \
+#     && rm mediamtx_linux_amd64.tar.gz
 
-WORKDIR /mediamtx
+# WORKDIR /mediamtx
 
-# Expose necessary ports
-EXPOSE 8554 8889 8000 8001 1935 8888 8189 8890
+# # Expose necessary ports
+# EXPOSE 8554 8889 8000 8001 1935 8888 8189 8890
 
-ENTRYPOINT ["./mediamtx"]
+# ENTRYPOINT ["./mediamtx"]
+
+
+
+
 
 
 
