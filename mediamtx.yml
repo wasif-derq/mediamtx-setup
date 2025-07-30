@@ -3,3 +3,4 @@ paths:
     source: publisher
 
 webrtc: true
+webrtcAdditionalHosts: [3.16.130.248]
