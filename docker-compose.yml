@@ -28,18 +28,18 @@ services:
     entrypoint: ""
     depends_on:
       - mediamtx
-      - mediamtx2
+      # - mediamtx2
       # Single video to single stream
-    # command: ffmpeg -re -stream_loop -1 -i /videos/test-video.mp4 -c:v libx264 -g 50 -keyint_min 50 -sc_threshold 0 -bf 0 -pix_fmt yuv420p -c:a libopus -ar 48000 -ac 2 -f rtsp -rtsp_transport tcp rtsp://mediamtx:8554/webrtc_stream
+    command: ffmpeg -re -stream_loop -1 -i /videos/test-video.mp4 -c:v libx264 -g 50 -keyint_min 50 -sc_threshold 0 -bf 0 -pix_fmt yuv420p -c:a libopus -ar 48000 -ac 2 -f rtsp -rtsp_transport tcp rtsp://mediamtx:8554/webrtc_stream
       # Single video to multiple streams
     # command: ffmpeg -re -stream_loop -1 -i /videos/test-video.mp4 -c:v libx264 -g 50 -keyint_min 50 -sc_threshold 0 -bf 0 -pix_fmt yuv420p -c:a libopus -ar 48000 -ac 2 -f rtsp -rtsp_transport tcp rtsp://mediamtx:8554/webrtc_stream -map 0:v -map 0:a -c:v libx264 -g 50 -keyint_min 50 -sc_threshold 0 -bf 0 -pix_fmt yuv420p -c:a libopus -ar 48000 -ac 2 -f rtsp -rtsp_transport tcp rtsp://mediamtx2:8554/webrtc_stream
       # Multiple videos
-    command: >
-      sh -c "
-        ffmpeg -re -stream_loop -1 -i /videos/test-video.mp4 -c:v libx264 -g 50 -keyint_min 50 -sc_threshold 0 -bf 0 -pix_fmt yuv420p -c:a libopus -ar 48000 -ac 2 -f rtsp -rtsp_transport tcp rtsp://mediamtx:8554/webrtc_stream &
-        ffmpeg -re -stream_loop -1 -i /videos/test-video-2.mp4 -c:v libx264 -g 50 -keyint_min 50 -sc_threshold 0 -bf 0 -pix_fmt yuv420p -c:a libopus -ar 48000 -ac 2 -f rtsp -rtsp_transport tcp rtsp://mediamtx2:8554/webrtc_stream
-      "
+    # command: >
+    #   sh -c "
+    #     ffmpeg -re -stream_loop -1 -i /videos/test-video.mp4 -c:v libx264 -g 50 -keyint_min 50 -sc_threshold 0 -bf 0 -pix_fmt yuv420p -c:a libopus -ar 48000 -ac 2 -f rtsp -rtsp_transport tcp rtsp://mediamtx:8554/webrtc_stream &
+    #     ffmpeg -re -stream_loop -1 -i /videos/test-video-2.mp4 -c:v libx264 -g 50 -keyint_min 50 -sc_threshold 0 -bf 0 -pix_fmt yuv420p -c:a libopus -ar 48000 -ac 2 -f rtsp -rtsp_transport tcp rtsp://mediamtx2:8554/webrtc_stream
+    #   "
     volumes:
       - ./test-video.mp4:/videos/test-video.mp4
-      - ./test-video-2.mp4:/videos/test-video-2.mp4
+      # - ./test-video-2.mp4:/videos/test-video-2.mp4
     restart: unless-stopped
