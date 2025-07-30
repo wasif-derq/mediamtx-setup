@@ -3,4 +3,4 @@ paths:
     source: publisher
 
 webrtc: true
-webrtcAdditionalHosts: [3.16.130.248]
+webrtcAdditionalHosts: [3.16.130.248, localdm-demo.cloud.derq.com]
